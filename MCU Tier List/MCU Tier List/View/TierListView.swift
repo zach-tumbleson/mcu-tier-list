@@ -13,10 +13,11 @@ struct TierListView: View {
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)], spacing: 5) {
             ForEach(TierListElement.allCases, id: \.rawValue) { element in
-                TierListElementView(element: element)
-                    .onTapGesture {
-                        onSelect(element)
-                    }
+                Button {
+                    onSelect(element)
+                } label: {
+                    TierListElementView(element: element)
+                }
             }
         }
     }

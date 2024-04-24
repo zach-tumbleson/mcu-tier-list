@@ -14,6 +14,7 @@ struct TierListElementView: View {
         Text(element.rawValue)
             .font(.largeTitle)
             .fontWeight(.bold)
+            .foregroundColor(.black)
             .padding(.vertical, 20)
             .frame(maxWidth: .infinity)
             .background {
