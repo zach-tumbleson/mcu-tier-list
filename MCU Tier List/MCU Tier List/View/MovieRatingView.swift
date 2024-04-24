@@ -14,7 +14,7 @@ struct MovieRatingView: View {
     var body: some View {
         VStack {
             AsyncImage(
-                url: .init(string: movie.cover_url),
+                url: .init(string: movie.coverUrl),
                 content: { image in
                     image
                         .resizable()
@@ -34,9 +34,9 @@ struct MovieRatingView: View {
 }
 
 #Preview {
-    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg")) { _ in }
+    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", releaseDate: "2024-02-02", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg")) { _ in }
 }
 
 #Preview {
-    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg")) { _ in }
+    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", releaseDate: "2024-02-02", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg")) { _ in }
 }
