@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var movies: [Movie]
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,9 +18,17 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .task {
+            do {
+                movies = try await mcuAPI.getMovies()
+            }
+            catch {
+               // Egg
+            }
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(movies: [])
 }

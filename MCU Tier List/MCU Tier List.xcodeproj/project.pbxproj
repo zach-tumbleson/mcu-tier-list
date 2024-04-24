@@ -14,6 +14,8 @@
 		92A41A102BD97278003F98FE /* MCU_Tier_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A41A0F2BD97278003F98FE /* MCU_Tier_ListTests.swift */; };
 		92A41A1A2BD97278003F98FE /* MCU_Tier_ListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A41A192BD97278003F98FE /* MCU_Tier_ListUITests.swift */; };
 		92A41A1C2BD97278003F98FE /* MCU_Tier_ListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A41A1B2BD97278003F98FE /* MCU_Tier_ListUITestsLaunchTests.swift */; };
+		92A41A2A2BD97317003F98FE /* mcuAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A41A292BD97317003F98FE /* mcuAPI.swift */; };
+		92A41A2D2BD9735A003F98FE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A41A2C2BD9735A003F98FE /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		92A41A152BD97278003F98FE /* MCU Tier ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MCU Tier ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A41A192BD97278003F98FE /* MCU_Tier_ListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCU_Tier_ListUITests.swift; sourceTree = "<group>"; };
 		92A41A1B2BD97278003F98FE /* MCU_Tier_ListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCU_Tier_ListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		92A41A292BD97317003F98FE /* mcuAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mcuAPI.swift; sourceTree = "<group>"; };
+		92A41A2C2BD9735A003F98FE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 		92A419FD2BD9726A003F98FE /* MCU Tier List */ = {
 			isa = PBXGroup;
 			children = (
+				92A41A2B2BD97344003F98FE /* Model */,
+				92A41A282BD97302003F98FE /* Network */,
 				92A419FE2BD9726A003F98FE /* MCU_Tier_ListApp.swift */,
 				92A41A002BD9726A003F98FE /* ContentView.swift */,
 				92A41A022BD97278003F98FE /* Assets.xcassets */,
@@ -125,6 +131,22 @@
 				92A41A1B2BD97278003F98FE /* MCU_Tier_ListUITestsLaunchTests.swift */,
 			);
 			path = "MCU Tier ListUITests";
+			sourceTree = "<group>";
+		};
+		92A41A282BD97302003F98FE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				92A41A292BD97317003F98FE /* mcuAPI.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		92A41A2B2BD97344003F98FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92A41A2C2BD9735A003F98FE /* Movie.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A41A012BD9726A003F98FE /* ContentView.swift in Sources */,
+				92A41A2A2BD97317003F98FE /* mcuAPI.swift in Sources */,
+				92A41A2D2BD9735A003F98FE /* Movie.swift in Sources */,
 				92A419FF2BD9726A003F98FE /* MCU_Tier_ListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
