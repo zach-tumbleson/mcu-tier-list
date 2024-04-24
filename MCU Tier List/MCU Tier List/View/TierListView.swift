@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct TierListView: View {
+    let onSelect: (TierListElement) -> ()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LazyVGrid(columns: [GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5), GridItem(.flexible(), spacing: 5)], spacing: 5) {
+            ForEach(TierListElement.allCases, id: \.rawValue) { element in
+                TierListElementView(element: element)
+                    .onTapGesture {
+                        onSelect(element)
+                    }
+            }
+        }
     }
 }
 
 #Preview {
-    TierListView()
+    TierListView(onSelect: { _ in})
 }

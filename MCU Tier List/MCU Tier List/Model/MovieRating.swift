@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct MovieRating {
+    let rating: TierListElement
+    let movie: Movie
+}

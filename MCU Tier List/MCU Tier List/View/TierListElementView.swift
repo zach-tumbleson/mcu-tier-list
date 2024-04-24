@@ -8,11 +8,20 @@
 import SwiftUI
 
 struct TierListElementView: View {
+    let element: TierListElement
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(element.rawValue)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity)
+            .background {
+                element.color
+            }
     }
 }
 
 #Preview {
-    TierListElementView()
+    TierListElementView(element: .A)
 }
