@@ -28,6 +28,7 @@ struct MovieRatingCarousel: View {
                 
                 currentMovie = nextMovie
             }
+            .navigationBarBackButtonHidden()
         } else {
             Text("oops")
                 .onAppear {
