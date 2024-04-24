@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MovieFinalTierListView: View {
-    let ratings: [MovieRating]
+    @EnvironmentObject var  ratingsStore: RatingsStore
     
     var ratingsGrouped: [TierListElement: [MovieRating]] {
-        return .init(grouping: ratings, by: { rating in return rating.rating })
+        return .init(grouping: ratingsStore.ratings, by: { rating in return rating.rating })
     }
     
     var body: some View {
@@ -49,7 +49,8 @@ struct MovieFinalTierListView: View {
 }
 
 #Preview {
-    MovieFinalTierListView(ratings: [.init(rating: .S, movie: .init(id: 1, title: "", releaseDate: "", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg")), .init(rating: .A, movie: .init(id: 2, title: "", releaseDate: "", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg"))])
+    MovieFinalTierListView()
+        .environmentObject(RatingsStore(ratings: [.init(rating: .S, movie: .init(id: 1, title: "", releaseDate: "", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg")), .init(rating: .A, movie: .init(id: 2, title: "", releaseDate: "", coverUrl: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg"))]))
 }
 
 

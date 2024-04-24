@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieRatingCarousel: View {
     @Binding var allMovies: [Movie]
+    @EnvironmentObject var ratingsStore: RatingsStore
     
     @State var ratedMovies: [MovieRating] = []
     @State var currentMovie: Movie? = nil
@@ -16,7 +17,9 @@ struct MovieRatingCarousel: View {
     var body: some View {
         if let movie = currentMovie {
             MovieRatingView(movie: movie) { rating in
-                ratedMovies.append(.init(rating: rating, movie: movie))
+                let movieRating = MovieRating(rating: rating, movie: movie)
+                ratedMovies.append(movieRating)
+                ratingsStore.add(rating: movieRating)
                 
                 guard let currentMovieIndex = allMovies.firstIndex(of: movie) else {
                     //todo

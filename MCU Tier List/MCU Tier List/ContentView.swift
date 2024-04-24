@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var movies: [Movie]
+    @StateObject var ratingStore: RatingsStore = .init()
     
     var body: some View {
         TabView {
@@ -45,9 +46,10 @@ struct ContentView: View {
                 .background(.black)
             }
             .tabItem { Label("Movies", systemImage: "film.stack") }
-            Text("egg")
+            MovieFinalTierListView()
                 .tabItem { Label("Ratings", systemImage: "chart.bar")}
         }
+        .environmentObject(ratingStore)
     }
 }
 
