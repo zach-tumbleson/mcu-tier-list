@@ -20,7 +20,19 @@ struct MovieRatingCarousel: View {
     }
     
     var body: some View {
-        MovieRatingView(movie: currentMovie)
+        MovieRatingView(movie: currentMovie) { rating in
+            ratedMovies.append(.init(rating: rating, movie: currentMovie))
+            
+            guard let currentMovieIndex = allMovies.firstIndex(of: currentMovie) else {
+                //todo
+                return
+            }
+            
+            let nextMovieIndex = allMovies.index(after: currentMovieIndex)
+            let nextMovie = allMovies[nextMovieIndex]
+            
+            currentMovie = nextMovie
+        }
     }
 }
 

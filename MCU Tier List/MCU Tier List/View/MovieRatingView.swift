@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieRatingView: View {
     let movie: Movie
+    let onRating: (TierListElement) -> ()
     
     var body: some View {
         VStack {
@@ -24,8 +25,8 @@ struct MovieRatingView: View {
                 })
             .ignoresSafeArea(.all)
             
-            TierListView() { _ in
-                
+            TierListView() { element in
+                onRating(element)
             }
         }
         .background(Color.black)
@@ -33,9 +34,9 @@ struct MovieRatingView: View {
 }
 
 #Preview {
-    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg"))
+    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1658747271/mcuapi/gallery/Movies/thunderbolts/posters/1.jpg")) { _ in }
 }
 
 #Preview {
-    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg"))
+    MovieRatingView(movie: .init(id: 1, title: "Thunderbolts", release_date: "2024-02-02", cover_url: "https://res.cloudinary.com/augustomarcelo/image/upload/v1675206317/mcuapi/gallery/Movies/iron_man/posters/1.jpg")) { _ in }
 }
