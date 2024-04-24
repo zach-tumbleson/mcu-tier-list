@@ -43,9 +43,8 @@ struct ContentView: View {
                     }
                 }
                 .background(.black)
-                .tabItem { Label("Movies", systemImage: "film.stack") }
-                
             }
+            .tabItem { Label("Movies", systemImage: "film.stack") }
             Text("egg")
                 .tabItem { Label("Ratings", systemImage: "chart.bar")}
         }
