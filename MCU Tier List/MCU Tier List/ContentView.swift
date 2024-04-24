@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var movies: [Movie]
+    @State var movies: [Movie] = []
     @StateObject var ratingStore: RatingsStore = .init()
+    
+    init() {
+      UITabBar.appearance().unselectedItemTintColor = UIColor.white
+    }
     
     var body: some View {
         TabView {
@@ -54,5 +58,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(movies: [])
+    ContentView()
 }
