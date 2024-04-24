@@ -8,34 +8,35 @@
 import SwiftUI
 
 struct MovieRatingCarousel: View {
-    let allMovies: [Movie]
+    @Binding var allMovies: [Movie]
     
     @State var ratedMovies: [MovieRating] = []
-    @State var currentMovie: Movie
-    
-    init(allMovies: [Movie]) {
-        self.allMovies = allMovies
-        self.ratedMovies = []
-        self.currentMovie = allMovies.first!
-    }
+    @State var currentMovie: Movie? = nil
     
     var body: some View {
-        MovieRatingView(movie: currentMovie) { rating in
-            ratedMovies.append(.init(rating: rating, movie: currentMovie))
-            
-            guard let currentMovieIndex = allMovies.firstIndex(of: currentMovie) else {
-                //todo
-                return
+        if let movie = currentMovie {
+            MovieRatingView(movie: movie) { rating in
+                ratedMovies.append(.init(rating: rating, movie: movie))
+                
+                guard let currentMovieIndex = allMovies.firstIndex(of: movie) else {
+                    //todo
+                    return
+                }
+                
+                let nextMovieIndex = allMovies.index(after: currentMovieIndex)
+                let nextMovie = allMovies[nextMovieIndex]
+                
+                currentMovie = nextMovie
             }
-            
-            let nextMovieIndex = allMovies.index(after: currentMovieIndex)
-            let nextMovie = allMovies[nextMovieIndex]
-            
-            currentMovie = nextMovie
+        } else {
+            Text("oops")
+                .onAppear {
+                    currentMovie = allMovies.first
+                }
         }
     }
 }
 
 #Preview {
-MovieRatingCarousel(allMovies: [.init(id: 1, title: "", releaseDate: "", coverUrl: "")])
+    MovieRatingCarousel(allMovies: .constant([.init(id: 1, title: "", releaseDate: "", coverUrl: "")]))
 }

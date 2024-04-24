@@ -20,7 +20,7 @@ struct ContentView: View {
                     .fontDesign(.monospaced)
                     .font(.system(size: 60))
                     .foregroundColor(.white)
-                NavigationLink("Start", destination: MovieRatingCarousel(allMovies: movies))
+                NavigationLink("Start", destination: MovieRatingCarousel(allMovies: $movies))
                 Spacer()
             }
             .task {
