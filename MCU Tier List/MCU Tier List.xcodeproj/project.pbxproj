@@ -20,6 +20,7 @@
 		E04ED29A2BD97A3200E2E05D /* TierListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04ED2992BD97A3200E2E05D /* TierListElement.swift */; };
 		E04ED29C2BD97F4A00E2E05D /* MovieRatingCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04ED29B2BD97F4A00E2E05D /* MovieRatingCarousel.swift */; };
 		E04ED29E2BD97F7300E2E05D /* MovieRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04ED29D2BD97F7300E2E05D /* MovieRating.swift */; };
+		E0A0C5272BD9822100A270BB /* MovieFinalTierListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A0C5262BD9822100A270BB /* MovieFinalTierListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		E04ED2992BD97A3200E2E05D /* TierListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TierListElement.swift; sourceTree = "<group>"; };
 		E04ED29B2BD97F4A00E2E05D /* MovieRatingCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRatingCarousel.swift; sourceTree = "<group>"; };
 		E04ED29D2BD97F7300E2E05D /* MovieRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRating.swift; sourceTree = "<group>"; };
+		E0A0C5262BD9822100A270BB /* MovieFinalTierListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieFinalTierListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				E04ED2952BD97A1500E2E05D /* TierListView.swift */,
 				E04ED2972BD97A1F00E2E05D /* TierListElementView.swift */,
 				E04ED29B2BD97F4A00E2E05D /* MovieRatingCarousel.swift */,
+				E0A0C5262BD9822100A270BB /* MovieFinalTierListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				E04ED2982BD97A1F00E2E05D /* TierListElementView.swift in Sources */,
 				922DFB132BD9846A006DB65A /* RatingsStore.swift in Sources */,
+				E0A0C5272BD9822100A270BB /* MovieFinalTierListView.swift in Sources */,
 				E04ED29E2BD97F7300E2E05D /* MovieRating.swift in Sources */,
 				92A41A012BD9726A003F98FE /* ContentView.swift in Sources */,
 				E04ED29A2BD97A3200E2E05D /* TierListElement.swift in Sources */,
