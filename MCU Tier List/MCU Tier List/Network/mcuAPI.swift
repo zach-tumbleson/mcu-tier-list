@@ -22,9 +22,11 @@ final class mcuAPI {
 
         let (result, _) = try await URLSession.shared.data(from: url)
         
-        let movies = try JSONDecoder().decode([Movie].self, from: result)
+        let decoder =  JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let movieContainer = try decoder.decode(MovieContainer.self, from: result)
         
-        return movies
+        return movieContainer.data
         
     }
 }

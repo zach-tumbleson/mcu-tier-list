@@ -11,20 +11,29 @@ struct ContentView: View {
     @State var movies: [Movie]
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        .task {
-            do {
-                movies = try await mcuAPI.getMovies()
+        NavigationView {
+            VStack {
+                Image("mcu-logo")
+                    .resizable()
+                    .frame(height: 200)
+                Text("Tier List")
+                    .fontDesign(.monospaced)
+                    .font(.system(size: 60))
+                    .foregroundColor(.white)
+                NavigationLink("Start", destination: MovieRatingCarousel(allMovies: movies))
+                Spacer()
             }
-            catch {
-               // Egg
+            .task {
+                print("Getting movies")
+                do {
+                    movies = try await mcuAPI.getMovies()
+                    print(movies)
+                }
+                catch {
+                    print(error)
+                }
             }
+            .background(.black)
         }
     }
 }

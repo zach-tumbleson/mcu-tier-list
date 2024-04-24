@@ -7,9 +7,13 @@
 
 import Foundation
 
+struct MovieContainer: Codable {
+    let data: [Movie]
+}
+
 struct Movie: Codable, Equatable {
     let id: Int
     let title: String
-    let release_date: String
-    let cover_url: String
+    let releaseDate: String
+    let coverUrl: String
 }

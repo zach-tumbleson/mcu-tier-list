@@ -37,5 +37,5 @@ struct MovieRatingCarousel: View {
 }
 
 #Preview {
-MovieRatingCarousel(allMovies: [.init(id: 1, title: "", release_date: "", cover_url: "")])
+MovieRatingCarousel(allMovies: [.init(id: 1, title: "", releaseDate: "", coverUrl: "")])
 }
