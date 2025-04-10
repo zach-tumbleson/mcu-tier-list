@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MovieFinalTierListView: View {
     @EnvironmentObject var  ratingsStore: RatingsStore
+    @State var selectedRating: MovieRating?
     
     var ratingsGrouped: [TierListElement: [MovieRating]] {
         return .init(grouping: ratingsStore.ratings, by: { rating in return rating.rating })
@@ -32,8 +33,11 @@ struct MovieFinalTierListView: View {
                                             .frame(width: 100)
                                     },
                                     placeholder: {
-                                        ProgressView()
+                                        Text(movieRating.movie.title)
                                     })
+                                .onTapGesture {
+                                    selectedRating = movieRating
+                                }
                             }
                         }
                     }
@@ -44,6 +48,30 @@ struct MovieFinalTierListView: View {
         .background {
             Color.black
                 .ignoresSafeArea(.all)
+        }
+        .popover(item: $selectedRating) { rating in
+            VStack {
+                AsyncImage(
+                    url: .init(string: rating.movie.coverUrl),
+                    content: { image in
+                        image
+                            .resizable()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    },
+                    placeholder: {
+                        Text(rating.movie.title)
+                    })
+                
+                TierListView { newRating in
+                    var newRatingMovieCombo = rating
+                    newRatingMovieCombo.rating = newRating
+                    
+                    ratingsStore.ratings.removeAll { $0.id == rating.movie.id }
+                    
+                    ratingsStore.ratings.append(newRatingMovieCombo)
+                    selectedRating = nil
+                }
+            }
         }
     }
 }

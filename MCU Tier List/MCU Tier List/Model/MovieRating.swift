@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct MovieRating {
-    let rating: TierListElement
+struct MovieRating: Identifiable {
+    var rating: TierListElement
     let movie: Movie
+    
+    var id: Int { movie.id }
 }

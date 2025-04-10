@@ -21,7 +21,7 @@ struct MovieRatingView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 },
                 placeholder: {
-                    ProgressView()
+                    Text(movie.title)
                 })
             .ignoresSafeArea(.all)
             
