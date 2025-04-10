@@ -40,7 +40,13 @@ struct ContentView: View {
                 .task {
                     print("Getting movies")
                     do {
-                        movies = try await mcuAPI.getMovies()
+                        movies = try await mcuAPI.getMovies().filter {
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM-dd"
+                            let date = formatter.date(from: $0.releaseDate)!
+                            return Date.now > date
+                        }
+                        
                         print(movies)
                     }
                     catch {
@@ -54,6 +60,7 @@ struct ContentView: View {
                 .tabItem { Label("Ratings", systemImage: "chart.bar")}
         }
         .environmentObject(ratingStore)
+        .colorScheme(.dark)
     }
 }
 

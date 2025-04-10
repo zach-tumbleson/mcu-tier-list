@@ -13,6 +13,7 @@ struct MovieRatingCarousel: View {
     
     @State var ratedMovies: [MovieRating] = []
     @State var currentMovie: Movie? = nil
+    @State var appeared: Bool = false
     
     var body: some View {
         if let movie = currentMovie {
@@ -27,16 +28,26 @@ struct MovieRatingCarousel: View {
                 }
                 
                 let nextMovieIndex = allMovies.index(after: currentMovieIndex)
+                
+                if nextMovieIndex >= allMovies.endIndex {
+                    currentMovie = nil
+                    return
+                }
+                
                 let nextMovie = allMovies[nextMovieIndex]
                 
                 currentMovie = nextMovie
             }
             .navigationBarBackButtonHidden()
         } else {
-            Text("oops")
+            Text("You Finished!")
                 .onAppear {
+                    guard !appeared else { return }
+                    
+                    appeared = true
                     currentMovie = allMovies.first
                 }
+                .background(Color.black)
         }
     }
 }
